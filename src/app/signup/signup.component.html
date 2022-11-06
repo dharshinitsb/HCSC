@@ -1,0 +1,75 @@
+
+<body>
+    <div class="container">
+        <img src="/assets/cloud.jpg" width="1520" height="700">
+        <div class="signupcard">
+        <mat-card>
+            <mat-card-content>
+                <div class="header">
+                    <h2>Sign Up</h2>
+                </div>
+
+                <form name="loginForm"  [formGroup]="loginForm">
+                    <div class="emailInput">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input [(ngModel)]="user.username" formControlName="username" matInput placeholder="Enter your first name" required />
+                            <mat-error *ngIf="!loginForm.controls['username'].valid">
+                                User Name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    
+                    <div class="emailInput">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input [(ngModel)]="user.email" formControlName="email" matInput placeholder="Enter email address" required />
+                            <mat-error *ngIf="!loginForm.controls['email'].valid">
+                                Email is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <span>
+                            <a class="text-link" class="aLink" routerLink="/auth/forgot-password">Forgot Password?</a>
+                        </span>
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input [(ngModel)]="user.password" formControlName="password" placeholder="Enter your password" matInput [type]=" hide ? 'password' : 'text'" required />
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>
+                                    {{hide ? 'visibility_off' : 'visibility'}}
+                                </mat-icon>
+                            </button>
+                            <mat-error *ngIf="!loginForm.controls['password'].valid">
+                                Password is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="emailInput">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <input [(ngModel)]="user.address" formControlName="address" matInput placeholder="Enter your address" required />
+                            <mat-error *ngIf="!loginForm.controls['address'].valid">
+                                Address is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="emailInput">
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Phone Number</mat-label>
+                            <input [(ngModel)]="user.phoneNumber" formControlName="phoneNumber" matInput placeholder="Enter your phone number" required />
+                            <mat-error *ngIf="!loginForm.controls['phoneNumber'].valid">
+                                Phone Number is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <button mat-flat-button color="primary" (click)="register()">Register</button>
+                </form>
+                
+            </mat-card-content>
+        </mat-card>
+        </div>
+    </div>
+</body>

@@ -1,0 +1,51 @@
+<body>
+    <div class="container">
+        <img src="/assets/cloud.jpg"  width="1520" height="580" > 
+        <div class="home">
+          <h2 style="text-align: center;font-weight:bold;">Welcome To FlightBuzz!!!</h2>
+        <mat-card>
+            <mat-card-content>
+                <div class="header">
+                    <h2>Book a Ticket</h2>
+                </div>
+               <form name="formName">
+                <div class="from">
+                <mat-form-field appearance="fill">
+                    <mat-label>From</mat-label>
+                    <mat-select>
+                      <mat-option value="option1">Mumbai</mat-option>
+                      <mat-option value="option2">Delhi</mat-option>
+                      <mat-option value="option3">Chennai</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  </div>
+                  <div class="to">
+                  <mat-form-field appearance="fill">
+                    <mat-label>To</mat-label>
+                    <mat-select>
+                      <mat-option value="option1">Delhi</mat-option>
+                      <mat-option value="option2">Mumbai</mat-option>
+                      <mat-option value="option3">Chennai</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  </div>
+                  <div>
+                  <input type="date">
+                  </div><br>
+                  <div>
+                 <button mat-flat-button color="primary" (click)="search()" >Search Flights</button>
+                 </div>
+                  </form>
+                
+                  
+                 
+            </mat-card-content>
+        </mat-card>
+
+       
+</div>
+        
+    </div>
+    
+
+</body>

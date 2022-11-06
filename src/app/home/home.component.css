@@ -1,0 +1,23 @@
+
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 600px;
+    
+    
+    
+  }
+header{
+    text-align: center;
+  
+  }
+  .home{
+    position:absolute;
+    top: 200px;
+    right: 500px;
+    width: 550px;
+    justify-content: center;
+    opacity: 0.8;
+    
+    }

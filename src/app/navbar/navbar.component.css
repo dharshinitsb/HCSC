@@ -1,0 +1,6 @@
+.spacer{
+    flex: 1 1 auto;
+}
+body{
+    background-image: url('/assets/Airlines.jpg');
+}
