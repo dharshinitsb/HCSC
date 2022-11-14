@@ -11,30 +11,22 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 export class SignupComponent implements OnInit {
  
- ;
-  
-  user:User = new User('','','','','');
+  user:User = new User('','');
 
   constructor(private service:AuthServiceService, private router:Router,private fb: FormBuilder) { }
   hide: boolean = false;
 
-  ngOnInit(): void {
-  }
 
   loginForm: FormGroup = this.fb.group({
-    username:['',[Validators.required]],
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    address:['',[Validators.required]],
-    phoneNumber:['',[Validators.required]]
-     
+    password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
 
-  
-  register() {
-   
-    
+  onLogin() {
+    if (!this.loginForm.valid) {
+      return;
+    }
     console.log(this.loginForm.value);
     this.service.register(this.user).subscribe((res:any)=>{
       this.service.data=res;
@@ -47,6 +39,7 @@ export class SignupComponent implements OnInit {
       Swal.fire("Registration Failed!");
     })
   }
- 
+  ngOnInit(): void {
+  }
 
 }

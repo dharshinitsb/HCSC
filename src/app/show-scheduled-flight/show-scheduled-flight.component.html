@@ -1,0 +1,63 @@
+<style>
+  
+    .wrapper{
+        min-height: 90vh;
+        background-image: url('assets/cloud.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+    
+    a {
+        color: #FF8040;
+    }
+    
+    </style>
+    <head>
+        <link
+        rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous"
+      />
+     </head>
+ 
+  <div class="wrapper">
+      <div class="container ">
+    
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="scheduledFlight/add" (click)="add()" >ADD</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="scheduledFlight/show" (click)="view()">VIEW</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="scheduledFlight/search" (click)="search()">SEARCH</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="scheduledFlight/delete" (click)="search()">DELETE</a>
+        </li>
+      </ul>
+      <br><br>
+      <h3 class="font-weight-bold">Show Scheduled Flights</h3>
+      <table border="1" class="table table-striped table-dark">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Schedule Flight Number</th>
+                  <th>Source Airport</th>
+                  <th>Destination Airport</th>
+                  <th>Departure Time</th>
+                  <th>Arrival Time</th>
+                  <th>Available Seats</th>
+                  <th>#</th>
+              </tr>
+          </thead>
+         
+          </table>
+          <br>
+          
+      </div>
+  </div>
+   
+  

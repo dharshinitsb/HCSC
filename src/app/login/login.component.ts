@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceService } from '../auth-service.service';
-
+import { User } from '../model/user';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
@@ -11,19 +11,15 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  formdata = {email:"",password:""};
   hide: boolean = false;
-  submit=false;
-  loading=false;
-  errorMessage="";
- 
+  user:User = new User('','');
   constructor(private service:AuthServiceService,private fb: FormBuilder,private router:Router) { }
 
-  ngOnInit(): void { this.service.canAuthenticate();
+  ngOnInit(): void {
   }
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]]
+    password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
 
@@ -31,28 +27,17 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.valid) {
       return;
     }
-    this.loading=true;
-    //call login service
-    this.service.login(this.formdata.email,this.formdata.password) .subscribe({
-      next:data=>{
-          //store token
-          this.service.storeToken(data.idToken);
-          console.log('logged user token is '+data.idToken);
-          this.service.canAuthenticate();
-      },
-      error:data=>{
-          if (data.error.error.message=="INVALID_PASSWORD" || data.error.error.message=="INVALID_EMAIL") {
-              this.errorMessage = "Invalid Credentials!";
-          } else{
-              this.errorMessage = "Unknown error when logging into this account!";
-          }
-      }
-  }).add(()=>{
-      this.loading =false;
-      console.log('login process completed!');
-      this.router.navigate(['home']);
-
-  })
-}
+ 
+    this.service.authenticate(this.user).subscribe((res:any)=>{
+      this.service.data=res;
+       console.log(res);
+        localStorage.setItem('token', res.token);
+        this.router.navigate(['']);
+      
+    }, (error:any)=>{
+      console.log(error);
+      Swal.fire("Login Failed!");
+    })
+  }
 
 }

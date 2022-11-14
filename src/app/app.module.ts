@@ -14,9 +14,13 @@ import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import {MatSelectModule} from '@angular/material/select';
+import { SearchScheduledFlightComponent } from './search-scheduled-flight/search-scheduled-flight.component';
+import { AddScheduledFlightComponent } from './add-scheduled-flight/add-scheduled-flight.component';
+import { ShowScheduledFlightComponent } from './show-scheduled-flight/show-scheduled-flight.component';
+import { DeleteScheduledFlightComponent } from './delete-scheduled-flight/delete-scheduled-flight.component';
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import {MatSelectModule} from '@angular/material/select';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    SearchScheduledFlightComponent,
+    AddScheduledFlightComponent,
+    ShowScheduledFlightComponent,
+    DeleteScheduledFlightComponent
   ],
   imports: [
     BrowserModule,
@@ -39,10 +47,10 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatSelectModule,HttpClientModule
+    MatSelectModule,HttpClientModule,FormsModule
   ],
 
- 
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
